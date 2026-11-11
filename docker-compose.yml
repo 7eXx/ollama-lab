@@ -9,8 +9,8 @@ services:
       - /dev/kfd
       - /dev/dri
     group_add:
-      - video
-      - render
+      - 44  # video
+      - 992 # render
     volumes:
       - ollama:/root/.ollama
     environment:
@@ -18,5 +18,6 @@ services:
       - OLLAMA_CONTEXT_LENGTH=32768
       - OLLAMA_FLASH_ATTENTION=1
       - OLLAMA_KV_CACHE_TYPE=q8_0
+      - OLLAMA_IGPU_ENABLE=1
 volumes:
   ollama:
